@@ -128,10 +128,10 @@ function App() {
           <p className="text-lg text-gray-700 dark:text-gray-300">
             For inquiries, please reach out to us at:{' '}
             <a 
-              href="mailto:contact@mosfoundation.org" 
+              href="mailto:contact@muslimopensource.org" 
               className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline font-medium transition-colors"
             >
-              contact@mosfoundation.org
+              contact@muslimopensource.org
             </a>
           </p>
         </section>
