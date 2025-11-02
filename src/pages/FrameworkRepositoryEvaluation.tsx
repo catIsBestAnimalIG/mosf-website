@@ -30,7 +30,7 @@ export default function FrameworkRepositoryEvaluation() {
 
         <section className="space-y-6">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white border-b border-blue-200 dark:border-blue-800 pb-2">
-            Criteria (0–10 each; total {MOSF_FRAMEWORK.totalPoints})
+            Criteria (0-10 each; total {MOSF_FRAMEWORK.totalPoints})
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300 dark:border-gray-700">

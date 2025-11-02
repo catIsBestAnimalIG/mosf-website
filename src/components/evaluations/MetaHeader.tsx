@@ -1,3 +1,5 @@
+import { formatDateLong } from "../../utils/dateUtils";
+
 export interface MetaHeaderProps {
   name: string;
   repoUrl?: string;
@@ -15,10 +17,6 @@ export default function MetaHeader({
   evaluationDate,
   evaluator,
 }: MetaHeaderProps) {
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  };
 
   return (
     <div className="space-y-4 mb-8">
@@ -60,7 +58,7 @@ export default function MetaHeader({
         </span>
         <span className="flex items-center gap-1">
           <span className="font-medium">Evaluated:</span>
-          <time dateTime={evaluationDate}>{formatDate(evaluationDate)}</time>
+          <time dateTime={evaluationDate}>{formatDateLong(evaluationDate)}</time>
         </span>
         <span className="flex items-center gap-1">
           <span className="font-medium">By:</span>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { evaluations, type Evaluation } from "../data/evaluations";
 import TotalBadge from "../components/evaluations/TotalBadge";
+import { formatDateShort, compareDates } from "../utils/dateUtils";
 
 export default function EvaluationsIndex() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,7 +33,7 @@ export default function EvaluationsIndex() {
         case "name":
           return a.name.localeCompare(b.name);
         case "date":
-          return new Date(b.evaluationDate).getTime() - new Date(a.evaluationDate).getTime();
+          return compareDates(b.evaluationDate, a.evaluationDate); // Descending order
         default:
           return 0;
       }
@@ -41,14 +42,6 @@ export default function EvaluationsIndex() {
     setSortedEvaluations(filtered);
   }, [searchQuery, sortBy]);
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  };
 
   const getClassificationColor = (classification: string): string => {
     const colorMap: Record<string, string> = {
@@ -141,7 +134,7 @@ export default function EvaluationsIndex() {
                       {evaluation.category}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-500">
-                      Evaluated {formatDate(evaluation.evaluationDate)} by {evaluation.evaluator}
+                      Evaluated {formatDateShort(evaluation.evaluationDate)} by {evaluation.evaluator}
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 line-clamp-2">
                       {evaluation.summary}
