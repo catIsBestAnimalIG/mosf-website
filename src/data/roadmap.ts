@@ -377,7 +377,7 @@ export function getCompletedItemsByMonthYear(): Record<string, CompletedItem[]> 
   const grouped: Record<string, CompletedItem[]> = {};
 
   roadmap.forEach((item) => {
-    const monthKey = `${item.month} ${item.year}`;
+    const monthKey = item.month;
 
     // Add completed objectives
     item.objectives.forEach((obj) => {
