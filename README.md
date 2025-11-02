@@ -1,107 +1,49 @@
-# Muslim Open Source Foundation (MOSF)
+# Muslim Open Source Foundation Website
 
-> **Status:** In Formation  
-> Incorporation pending in Washington State.
-
-## Mission
-Empower the global Muslim community to gain Islamic and software engineering knowledge freely through open-source collaboration, education, and innovation.
-
-## Vision
-A world where Muslims lead in ethical technology and open knowledge — advancing society through faith-aligned, transparent, and accessible digital solutions.
-
-## About
-The Muslim Open Source Foundation (MOSF) is a nonprofit organization being formed to promote education, open-source development, and Islamic ethical values in technology.  
-All MOSF projects will be freely available to the public under open licenses.
+> **Status:** In Formation (Washington State)
 
 ## Development
 
-This website is built with:
-- **Vite** - Fast build tool and dev server
-- **React** - UI library
-- **TailwindCSS** - Utility-first CSS framework
+Built with **Vite**, **React**, **TailwindCSS**, and **React Router v6**.
 
-### Local Development
-
-To run the website locally:
+### Setup
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
 The site will be available at `http://localhost:5173`
 
-### Building for Production
-
-To build the static site:
+### Build
 
 ```bash
 npm run build
 ```
 
-The output will be in the `dist/` directory.
+Output is in the `dist/` directory.
 
-### Deployment to GitHub Pages
+### Deployment
 
-The site is configured to deploy to GitHub Pages at the `/mosf-website/` path.
+The site uses React Router's `BrowserRouter`. A `404.html` file is automatically generated during build to support GitHub Pages SPA routing.
 
-**Deployment Steps:**
+## Repository Evaluation Framework
 
-1. Build the project:
-   ```bash
-   npm run build
-   ```
+The site includes a Repository Evaluation section that assesses Islamic open-source repositories.
 
-2. Deploy to GitHub Pages:
-   - Option A: Using GitHub Actions (recommended)
-     - Create a `.github/workflows/deploy.yml` workflow file (see below)
-     - Push to `main` branch and the workflow will automatically deploy
-   
-   - Option B: Manual deployment
-     ```bash
-     # Install gh-pages package (if not already installed)
-     npm install --save-dev gh-pages
-     
-     # Add deploy script to package.json:
-     # "deploy": "npm run build && gh-pages -d dist"
-     
-     # Deploy
-     npm run deploy
-     ```
+**Pages:**
+- `/frameworks/repository-evaluation` - Framework documentation
+- `/evaluations` - Evaluations index with search/sort
+- `/evaluations/:slug` - Individual evaluation details
 
-**GitHub Actions Workflow** (`.github/workflows/deploy.yml`):
-```yaml
-name: Deploy to GitHub Pages
+**Adding a new evaluation:**
 
-on:
-  push:
-    branches: [ main ]
+1. Create a JSON file in `src/data/evaluations/` following the structure of `qafiyah.json`
+2. Import and export it in `src/data/evaluations/index.ts`
+3. The evaluation will appear automatically
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: npm install
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-```
-
-After deployment, enable GitHub Pages in repository settings:
-1. Go to Settings → Pages
-2. Select `gh-pages` branch as the source
-3. The site will be available at `https://[username].github.io/mosf-website/`
+See `src/data/evaluations/qafiyah.json` for a complete example of the data structure.
 
 ---
 
-© 2025 Muslim Open Source Foundation. All rights reserved.  
-*(This organization is currently in formation.)*
+© 2025 Muslim Open Source Foundation. All rights reserved.

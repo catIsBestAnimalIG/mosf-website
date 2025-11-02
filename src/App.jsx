@@ -1,63 +1,238 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import FrameworkRepositoryEvaluation from "./pages/FrameworkRepositoryEvaluation";
+import EvaluationsIndex from "./pages/EvaluationsIndex";
+import EvaluationDetail from "./pages/EvaluationDetail";
+import Roadmap from "./pages/Roadmap";
+import Projects from "./pages/Projects";
 
-function App() {
+// Dark mode toggle component
+function DarkModeToggle() {
   const [darkMode, setDarkMode] = useState(() => {
-    // Check if user has a preference stored
-    const stored = localStorage.getItem('darkMode')
-    return stored ? JSON.parse(stored) : false
-  })
+    const stored = localStorage.getItem("darkMode");
+    return stored ? JSON.parse(stored) : false;
+  });
 
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.classList.add('dark')
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem('darkMode', JSON.stringify(darkMode))
-  }, [darkMode])
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
-  }
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    if (newMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("darkMode", JSON.stringify(newMode));
+  };
+
+  return (
+    <button
+      onClick={toggleDarkMode}
+      className="p-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+      aria-label="Toggle dark mode"
+    >
+      {darkMode ? (
+        <svg className="w-5 h-5 md:w-6 md:h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      ) : (
+        <svg className="w-5 h-5 md:w-6 md:h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      )}
+    </button>
+  );
+}
+
+// Navigation component for non-home pages
+function Navigation() {
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path || (path !== "/" && location.pathname.startsWith(path));
+
+  return (
+        <nav className="ml-14 flex flex-wrap items-center gap-4 mb-4">
+          <Link
+            to="/"
+            className={`text-sm font-medium transition-colors ${
+              isActive("/") && location.pathname === "/"
+                ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            }`}
+          >
+            Home
+          </Link>
+          <Link
+            to="/evaluations"
+            className={`text-sm font-medium transition-colors ${
+              isActive("/evaluations")
+                ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            }`}
+          >
+            Evaluations
+          </Link>
+          <Link
+            to="/frameworks/repository-evaluation"
+            className={`text-sm font-medium transition-colors ${
+              isActive("/frameworks/repository-evaluation")
+                ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            }`}
+          >
+            Framework
+          </Link>
+          <Link
+            to="/roadmap"
+            className={`text-sm font-medium transition-colors ${
+              isActive("/roadmap")
+                ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            }`}
+          >
+            Roadmap
+          </Link>
+          <Link
+            to="/projects"
+            className={`text-sm font-medium transition-colors ${
+              isActive("/projects")
+                ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            }`}
+          >
+            Projects
+          </Link>
+        </nav>
+  );
+}
+
+// Layout wrapper for pages that need navigation
+function PageLayout({ children }) {
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+      <header className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div className="max-w-4xl mx-auto px-6 py-6">
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-2">
+                <Link
+                  to="/"
+                  className="w-12 h-12 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <span className="text-white font-bold text-xs leading-tight">MOSF</span>
+                </Link>
+                <Link
+                  to="/"
+                  className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  Muslim Open Source Foundation
+                </Link>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base ml-14">
+                Empowering Muslims through open-source education and ethical technology
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 ml-14 mt-1 italic">
+                (In Formation)
+              </p>
+            </div>
+            <DarkModeToggle />
+          </div>
+          <Navigation />
+        </div>
+      </header>
+      {children}
+    </div>
+  );
+}
+
+// Home page component (original content)
+function Home() {
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
       {/* Header */}
       <header className="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-4xl mx-auto px-6 py-12 md:py-16">
-          <div className="flex items-center justify-between mb-6">
+        <div className="max-w-4xl mx-auto px-6 py-6">
+          <div className="flex items-start justify-between mb-4">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-14 h-14 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-sm leading-tight">MOSF</span>
+                <div className="w-12 h-12 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-xs leading-tight">MOSF</span>
                 </div>
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                   Muslim Open Source Foundation
                 </h1>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl ml-16">
+              <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base ml-14">
                 Empowering Muslims through open-source education and ethical technology
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 ml-16 mt-2 italic">
+              <p className="text-xs text-gray-500 dark:text-gray-400 ml-14 mt-1 italic">
                 (In Formation)
               </p>
             </div>
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? (
-                <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              )}
-            </button>
+            <DarkModeToggle />
           </div>
+          <nav className="ml-14 flex flex-wrap items-center gap-4 mb-4">
+            <Link
+              to="/"
+              className={`text-sm font-medium transition-colors ${
+                isActive("/")
+                  ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              }`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/evaluations"
+              className={`text-sm font-medium transition-colors ${
+                isActive("/evaluations")
+                  ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              }`}
+            >
+              Evaluations
+            </Link>
+            <Link
+              to="/frameworks/repository-evaluation"
+              className={`text-sm font-medium transition-colors ${
+                isActive("/frameworks/repository-evaluation")
+                  ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              }`}
+            >
+              Framework
+            </Link>
+            <Link
+              to="/roadmap"
+              className={`text-sm font-medium transition-colors ${
+                isActive("/roadmap")
+                  ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              }`}
+            >
+              Roadmap
+            </Link>
+            <Link
+              to="/projects"
+              className={`text-sm font-medium transition-colors ${
+                isActive("/projects")
+                  ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                  : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              }`}
+            >
+              Projects
+            </Link>
+          </nav>
         </div>
       </header>
 
@@ -126,7 +301,7 @@ function App() {
             Contact
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-300">
-            For inquiries, please reach out to us at:{' '}
+            For inquiries, please reach out to us at:{" "}
             <a 
               href="mailto:contact@muslimopensource.org" 
               className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline font-medium transition-colors"
@@ -167,8 +342,69 @@ function App() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
-export default App
+function App() {
+  // Initialize dark mode from localStorage on app load
+  useEffect(() => {
+    const stored = localStorage.getItem("darkMode");
+    const isDark = stored ? JSON.parse(stored) : false;
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/frameworks/repository-evaluation"
+          element={
+            <PageLayout>
+              <FrameworkRepositoryEvaluation />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/evaluations"
+          element={
+            <PageLayout>
+              <EvaluationsIndex />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/evaluations/:slug"
+          element={
+            <PageLayout>
+              <EvaluationDetail />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/roadmap"
+          element={
+            <PageLayout>
+              <Roadmap />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <PageLayout>
+              <Projects />
+            </PageLayout>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
 

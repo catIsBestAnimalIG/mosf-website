@@ -1,0 +1,38 @@
+{
+  "slug": "qafiyah",
+  "name": "Qafiyah (قافية)",
+  "repoUrl": "https://github.com/alwalxed/qafiyah",
+  "websiteUrl": "https://qafiyah.com",
+  "category": "Arabic Literature / Data / Education",
+  "evaluationDate": "2025-11-01",
+  "evaluator": "Muslim Open Source Foundation",
+  "scores": {
+    "alignment": { "score": 9, "comment": "Strong public-good focus on Arabic literary heritage and education." },
+    "openness": { "score": 9, "comment": "MIT license; DB dumps and schema provided; open reuse posture." },
+    "liveness": { "score": 6, "comment": "Active through mid-2025 with recent engagement; could increase commit/release cadence." },
+    "value": { "score": 9, "comment": "Large structured corpus; modern stack; high research and teaching utility." },
+    "docs": { "score": 8, "comment": "Clear README, schema, setup notes; could add API examples and accessibility notes." },
+    "community": { "score": 6, "comment": "Light issues/PRs; governance docs (CONTRIBUTING/CODE_OF_CONDUCT) could be expanded." },
+    "ethics": { "score": 8, "comment": "Aligned with Islamic ethics; optional filters for sensitive themes would help." }
+  },
+  "total": 55,
+  "classification": "Aligned",
+  "summary": "Qafiyah is an open Arabic poetry database and API that makes classical verse accessible to learners, educators, and researchers. It exemplifies transparency via data dumps and schema, with strong educational value. Additional governance docs and a steadier release cadence would lift it to 'Model Repository'.",
+  "narrative": [
+    "Qafiyah blends technical excellence with cultural preservation. Its architecture (e.g., modern web/API stack) and nearly one million verses offer immense educational potential.",
+    "The project's open data ethos—in the form of database dumps and documentation—invites reuse and research while keeping the public benefit front-and-center.",
+    "Maintainer guidance (CONTRIBUTING, CODE_OF_CONDUCT), issue triage labels, and tagged releases would encourage broader community stewardship."
+  ],
+  "recommendations": [
+    "Add CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, and a lightweight roadmap.",
+    "Publish example API queries (curl/TS), pagination/rate limits, and (optionally) an OpenAPI spec.",
+    "Resume regular maintenance commits (deps, data refresh) and tag releases with brief notes.",
+    "Offer optional content filters for sensitive themes and add bilingual docs (English/Arabic)."
+  ],
+  "badges": {
+    "label": "MOSF Aligned",
+    "color": "green",
+    "text": "55/70"
+  }
+}
+
