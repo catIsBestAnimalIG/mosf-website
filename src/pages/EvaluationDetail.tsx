@@ -12,7 +12,7 @@ export default function EvaluationDetail() {
 
   useEffect(() => {
     if (evaluation) {
-      document.title = `${evaluation.name} — MOSF Evaluation`;
+      document.title = `${evaluation.name} - MOSF Evaluation`;
       
       // Update or create meta description
       let metaDescription = document.querySelector('meta[name="description"]');
@@ -21,16 +21,10 @@ export default function EvaluationDetail() {
         metaDescription.setAttribute('name', 'description');
         document.head.appendChild(metaDescription);
       }
-      // Create a concise description based on category and summary
-      const categoryDescription = evaluation.category.toLowerCase().includes('curation') || evaluation.category.toLowerCase().includes('directory')
-        ? `a curated list of Islamic open-source resources`
-        : evaluation.category.toLowerCase().includes('education')
-        ? `an Islamic ${evaluation.category.split(' / ')[0].toLowerCase()} project`
-        : `an Islamic open-source project`;
-      
+      // Create a concise description with score and classification
       metaDescription.setAttribute(
         'content',
-        `MOSF applies its Repository Evaluation Framework to ${evaluation.name}, ${categoryDescription}.`
+        `MOSF applies its Repository Evaluation Framework to the ${evaluation.name}. Score ${evaluation.total}/70 - ${evaluation.classification}.`
       );
     } else {
       document.title = "Evaluation Not Found | MOSF";

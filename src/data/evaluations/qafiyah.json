@@ -20,7 +20,7 @@
   "summary": "Qafiyah is an open Arabic poetry database and API that makes classical verse accessible to learners, educators, and researchers. It exemplifies transparency via data dumps and schema, with strong educational value. Additional governance docs and a steadier release cadence would lift it to 'Model Repository'.",
   "narrative": [
     "Qafiyah blends technical excellence with cultural preservation. Its architecture (e.g., modern web/API stack) and nearly one million verses offer immense educational potential.",
-    "The project's open data ethos—in the form of database dumps and documentation—invites reuse and research while keeping the public benefit front-and-center.",
+    "The project's open data ethos, in the form of database dumps and documentation, invites reuse and research while keeping the public benefit front-and-center.",
     "Maintainer guidance (CONTRIBUTING, CODE_OF_CONDUCT), issue triage labels, and tagged releases would encourage broader community stewardship."
   ],
   "recommendations": [

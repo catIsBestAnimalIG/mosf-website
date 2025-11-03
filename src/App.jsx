@@ -254,7 +254,7 @@ function Home() {
             Vision
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            A world where Muslims lead in ethical technology and open knowledge — advancing society through faith-aligned, transparent, and accessible digital solutions.
+            A world where Muslims lead in ethical technology and open knowledge, advancing society through faith-aligned, transparent, and accessible digital solutions.
           </p>
         </section>
 
@@ -316,7 +316,7 @@ function Home() {
       <footer className="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-20">
         <div className="max-w-4xl mx-auto px-6 py-8">
           <p className="text-center text-gray-600 dark:text-gray-400">
-            © 2025 Muslim Open Source Foundation — All rights reserved.
+            © 2025 Muslim Open Source Foundation - All rights reserved.
           </p>
           <p className="text-center text-sm text-gray-500 dark:text-gray-500 mt-2">
             This organization is currently in formation.

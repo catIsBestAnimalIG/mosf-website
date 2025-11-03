@@ -20,7 +20,7 @@
   "summary": "A widely starred curated list of Muslim/Islamic open-source resources that meaningfully advances discovery and education. With a clear license and basic contributor governance, it could approach Model status.",
   "narrative": [
     "Awesome-Muslims serves as a central index for Muslim-oriented open-source projects, making it easier for learners, educators, and developers to find useful tools.",
-    "Its curated breadth is the value: Quran tools, prayer-time libraries, mobile apps, APIs, and more—organized for quick scanning and exploration.",
+    "Its curated breadth is the value: Quran tools, prayer-time libraries, mobile apps, APIs, and more, organized for quick scanning and exploration.",
     "The next step is curation maturity: a clear content license, contributor guide, code of conduct, templates for link submissions, and light automation (dead link checks) to sustain quality."
   ],
   "recommendations": [

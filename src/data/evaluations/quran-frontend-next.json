@@ -1,0 +1,37 @@
+{
+  "slug": "quran-frontend-next",
+  "name": "Quran.com Frontend (Next.js)",
+  "repoUrl": "https://github.com/quran/quran.com-frontend-next",
+  "websiteUrl": "https://quran.com",
+  "category": "Qur'an / Web App / Education",
+  "evaluationDate": "2025-11-02",
+  "evaluator": "Muslim Open Source Foundation",
+  "scores": {
+    "alignment": { "score": 10, "comment": "Quran.com delivers open access to the Qur'an globally, perfectly aligned with MOSF's mission of open Islamic knowledge." },
+    "openness": { "score": 4, "comment": "No LICENSE file is present. Until a permissive license (MIT/BSD/Apache) is added, the repository cannot be considered open source in legal terms." },
+    "liveness": { "score": 9, "comment": "Ongoing commits, releases, and active issue triage through 2025." },
+    "value": { "score": 9, "comment": "Strong technical architecture with Next.js, Storybook, testing, and localization. Excellent educational reference." },
+    "docs": { "score": 8, "comment": "Clear setup and contribution documentation; could expand accessibility and RTL guidance." },
+    "community": { "score": 9, "comment": "Healthy contributor culture with Discord, issue templates, and contribution guides." },
+    "ethics": { "score": 10, "comment": "Purely faith-aligned mission serving global Qur'an accessibility." }
+  },
+  "total": 59,
+  "classification": "Aligned",
+  "summary": "The official Quran.com frontend is one of the most impactful Muslim-led open web projects, demonstrating technical excellence and community stewardship. However, the absence of a clear open-source license prevents it from achieving 'Model Repository' status.",
+  "narrative": [
+    "Built with Next.js and TypeScript, the Quran.com frontend powers one of the internet's most visited Qur'an platforms, offering translations, tafsīr access, and a smooth multilingual experience.",
+    "Its engineering quality, modular design system, Storybook integration, and CI pipelines, shows maturity and reliability seldom matched in religious open technology projects.",
+    "The primary limitation is the lack of an explicit license file, which restricts derivative educational or collaborative reuse despite otherwise exemplary openness."
+  ],
+  "recommendations": [
+    "Add an explicit LICENSE file (MIT, BSD, or Apache) to legally open the source.",
+    "Publish an accessibility checklist for screen readers, keyboard navigation, and color contrast.",
+    "Maintain a lightweight public roadmap or release changelog."
+  ],
+  "badges": {
+    "label": "MOSF Aligned",
+    "color": "green",
+    "text": "59/70"
+  }
+}
+
