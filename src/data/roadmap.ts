@@ -31,11 +31,19 @@ export const roadmap: RoadmapItem[] = [
         text: "Continue board recruitment (Secretary & Treasurer)",
       },
       {
-        text: 'Maintain "in formation" transparency across channels',
+        text: 'Update website and communications to reflect Washington State nonprofit corporation status',
+        completedDate: "2025-11-03",
       },
       {
         text: "Prepare Google Form for board applicants",
         completedDate: "2025-11-02",
+      },
+      {
+        text: "Receive Articles of Incorporation approval from Washington State",
+        completedDate: "2025-11-03",
+      },
+      {
+        text: "Apply for EIN with IRS",
       },
     ],
     deliverables: [
@@ -51,33 +59,41 @@ export const roadmap: RoadmapItem[] = [
         text: "First LinkedIn updates",
         completedDate: "2025-11-02",
       },
+      {
+        text: "Articles of Incorporation received and approved",
+        completedDate: "2025-11-03",
+      },
+      {
+        text: "Articles of Incorporation page added to website",
+        completedDate: "2025-11-03",
+      },
+      {
+        text: "EIN application submitted",
+      },
     ],
   },
   {
     month: "Dec 2025",
     year: 2025,
     monthNumber: 12,
-    focus: "Incorporation readiness",
+    focus: "Governance preparation & EIN processing",
     objectives: [
-      {
-        text: "Await WA State approval",
-      },
-      {
-        text: "Prepare EIN application draft",
-      },
       {
         text: "Review final bylaws and policies",
       },
       {
         text: "Map governance repos for public release",
       },
+      {
+        text: "Prepare for first board meeting",
+      },
+      {
+        text: "Await EIN issuance from IRS",
+      },
     ],
     deliverables: [
       {
         text: "Articles & bylaws reviewed",
-      },
-      {
-        text: "EIN draft details ready",
       },
       {
         text: "`mosf-policies` repo scaffold created",
@@ -88,10 +104,10 @@ export const roadmap: RoadmapItem[] = [
     month: "Jan 2026",
     year: 2026,
     monthNumber: 1,
-    focus: "Official formation & first board meeting",
+    focus: "First board meeting & operational setup",
     objectives: [
       {
-        text: "Receive WA approval → apply for EIN",
+        text: "Receive EIN from IRS",
       },
       {
         text: "Hold first board meeting",
@@ -101,6 +117,9 @@ export const roadmap: RoadmapItem[] = [
       },
       {
         text: "Approve domain transfer",
+      },
+      {
+        text: "Open bank account under MOSF EIN",
       },
     ],
     deliverables: [
@@ -112,6 +131,9 @@ export const roadmap: RoadmapItem[] = [
       },
       {
         text: "Domain ownership under MOSF",
+      },
+      {
+        text: "Bank account opened",
       },
     ],
   },
