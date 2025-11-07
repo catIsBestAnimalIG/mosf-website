@@ -1,0 +1,44 @@
+{
+  "slug": "pray-times",
+  "name": "Pray-Times",
+  "repoUrl": "https://github.com/abodehq/Pray-Times",
+  "websiteUrl": "http://praytimes.org",
+  "category": "Prayer Times / Multi-Language Library",
+  "evaluationDate": "2025-11-06",
+  "evaluator": "Muslim Open Source Foundation",
+  "scores": {
+    "alignment": { "score": 10, "comment": "Directly serves a fundamental Islamic need: accurate prayer time calculations. Provides open-source implementation of established calculation methods used by Muslims worldwide. Core mission aligns perfectly with MOSF's goal of open Islamic knowledge." },
+    "openness": { "score": 7, "comment": "Project is described as open-source and provides source code access. However, no explicit LICENSE file is visible in the repository structure. Supports multiple languages (JavaScript, Python, PHP, Java, C++, C#, Objective C) which increases accessibility. Lacks visible contributor guidance documentation." },
+    "liveness": { "score": 3, "comment": "Repository shows minimal activity with only 4 commits total. Despite having 226 stars and 112 forks indicating community interest, there's no evidence of recent maintenance, active issue management, or releases. Project appears dormant despite its popularity." },
+    "value": { "score": 9, "comment": "Highly valuable library implementing multiple recognized calculation methods (MWL, ISNA, Egypt, Makkah, Karachi, Tehran, Jafari). Widely referenced and used. Multi-language support increases utility across different technology stacks. Addresses a critical need in Islamic software development." },
+    "docs": { "score": 6, "comment": "README provides clear usage examples and API documentation for JavaScript implementation. Documents calculation methods, parameters, and tuning options. However, documentation for other language implementations (Python, PHP, Java, etc.) is not clearly visible. Could benefit from more comprehensive multi-language documentation." },
+    "community": { "score": 3, "comment": "No visible governance files (CONTRIBUTING.md, CODE_OF_CONDUCT.md). Despite significant community interest (226 stars, 112 forks), there's no evidence of active community management, issue triage, or collaborative development structure. Repository structure suggests minimal maintenance." },
+    "ethics": { "score": 10, "comment": "Clear beneficial purpose serving the Muslim community. Provides accurate, transparent prayer time calculations using established methods. No ethical concerns. Project promotes open knowledge sharing for Islamic practice." }
+  },
+  "total": 48,
+  "classification": "Aligned",
+  "summary": "Pray-Times is a well-established open-source library for calculating Muslim prayer times across multiple programming languages. It implements various recognized calculation methods and has gained significant community interest. However, the repository shows minimal maintenance activity and lacks governance structures, limiting its potential for community contributions despite its technical value.",
+  "narrative": [
+    "Pray-Times addresses one of the most fundamental needs in Islamic software: accurate prayer time calculations. The library implements multiple calculation methods recognized by different Islamic authorities, including Muslim World League (MWL), Islamic Society of North America (ISNA), Egyptian General Authority, Umm al-Qura (Makkah), and others.",
+    "The project's multi-language support (JavaScript, Python, PHP, Java, C++, C#, Objective C) demonstrates a commitment to accessibility across different technology ecosystems. This broadens its potential impact and makes it useful for developers working in various environments.",
+    "Despite its popularity (226 stars, 112 forks) and clear value proposition, the repository shows signs of dormancy. With only 4 commits total and no visible recent activity, the project appears to be in maintenance mode rather than active development. The lack of governance documentation and community management structures limits its potential for collaborative growth."
+  ],
+  "recommendations": [
+    "Add an explicit LICENSE file (MIT or similar permissive license) to clarify legal reuse rights.",
+    "Create CONTRIBUTING.md and CODE_OF_CONDUCT.md to establish community governance and encourage contributions.",
+    "Document all language implementations (Python, PHP, Java, C++, C#, Objective C) with usage examples and installation instructions.",
+    "Establish a release process with version tags and maintain a CHANGELOG to track updates across language implementations.",
+    "Set up issue and PR templates to facilitate community engagement and bug reporting.",
+    "Consider creating a unified documentation site that covers all language implementations.",
+    "Add unit tests and CI/CD pipelines to ensure accuracy across all language ports.",
+    "Consider establishing a maintainer team or clear stewardship plan given the project's popularity and importance to the community."
+  ],
+  "badges": {
+    "label": "MOSF Aligned",
+    "color": "green",
+    "text": "48/70"
+  },
+  "metaTitle": "Pray-Times Evaluation | MOSF",
+  "metaDescription": "Evaluation of Pray-Times, a multi-language open-source library for calculating Muslim prayer times. Scored 48/70 on the MOSF framework."
+}
+

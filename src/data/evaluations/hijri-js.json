@@ -1,0 +1,42 @@
+{
+  "slug": "hijri-js",
+  "name": "Hijri.js",
+  "repoUrl": "https://github.com/xsoh/Hijri.js",
+  "websiteUrl": "https://xsoh.github.com/Hijri.js",
+  "category": "Islamic Calendar / JavaScript Library",
+  "evaluationDate": "2025-11-06",
+  "evaluator": "Muslim Open Source Foundation",
+  "scores": {
+    "alignment": { "score": 9, "comment": "Directly serves Islamic calendar needs, enabling accurate Hijri date conversion for Muslim applications and websites. Core functionality aligned with Islamic practice." },
+    "openness": { "score": 8, "comment": "MIT license provides clear permissive licensing. Code is open and reusable, but lacks explicit contributor guidance (CONTRIBUTING.md)." },
+    "liveness": { "score": 4, "comment": "Repository appears inactive with only 9 commits total. No recent updates, issues, or releases. Project seems stable but unmaintained." },
+    "value": { "score": 8, "comment": "Standalone JavaScript implementation without database dependencies, solving accuracy issues with historical dates (pre-1420H). Useful for web applications." },
+    "docs": { "score": 6, "comment": "README provides basic usage examples and formatting options. Could benefit from API documentation, installation instructions, and browser compatibility notes." },
+    "community": { "score": 3, "comment": "No governance files (CONTRIBUTING, CODE_OF_CONDUCT). Minimal community engagement with 82 stars and 28 forks but no visible collaboration structure." },
+    "ethics": { "score": 9, "comment": "Clear beneficial purpose for the Muslim community. Created to solve a real problem with existing solutions. Honest about limitations and use cases." }
+  },
+  "total": 47,
+  "classification": "Aligned",
+  "summary": "Hijri.js is a standalone JavaScript library for converting between Gregorian and Hijri dates. It addresses accuracy issues with historical dates and operates without database dependencies. While technically sound and clearly licensed (MIT), the repository shows minimal maintenance activity and lacks community governance structures.",
+  "narrative": [
+    "The library was created to solve a specific problem: existing Hijri converters were either inaccurate (especially for dates before 1420H) or required database lookups. Hijri.js provides a pure JavaScript solution that can be embedded directly in web pages.",
+    "The implementation is straightforward and functional, with clear conversion methods and date formatting options. The MIT license enables broad reuse, making it suitable for both commercial and non-commercial Islamic applications.",
+    "However, the repository shows signs of dormancy. With only 9 commits and no recent activity, the project appears to be in maintenance mode rather than active development. The lack of governance documentation limits its potential for community contributions."
+  ],
+  "recommendations": [
+    "Add CONTRIBUTING.md, CODE_OF_CONDUCT.md, and issue/PR templates to encourage community participation.",
+    "Expand documentation with installation instructions (npm/CDN), API reference, browser compatibility, and examples for common use cases.",
+    "Consider publishing to npm for easier distribution and dependency management.",
+    "Add unit tests and CI/CD to ensure accuracy and maintainability.",
+    "Tag releases with version numbers and maintain a CHANGELOG to track changes.",
+    "Consider adding TypeScript definitions for better developer experience."
+  ],
+  "badges": {
+    "label": "MOSF Aligned",
+    "color": "green",
+    "text": "47/70"
+  },
+  "metaTitle": "Hijri.js Evaluation | MOSF",
+  "metaDescription": "Evaluation of Hijri.js, a JavaScript library for Islamic calendar (Hijri) date conversion. Scored 47/70 on the MOSF framework."
+}
+
