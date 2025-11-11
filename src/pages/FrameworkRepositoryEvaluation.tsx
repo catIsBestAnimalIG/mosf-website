@@ -71,6 +71,68 @@ export default function FrameworkRepositoryEvaluation() {
           </div>
         </section>
 
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white border-b border-mosf-navy-200 dark:border-mosf-navy-800 pb-2">
+            Detailed Scoring Ranges per Category
+          </h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            Each criterion is scored on a 0–10 scale. The following breakdown provides qualitative guidance for what each score band represents within that criterion.
+          </p>
+          
+          <div className="space-y-12">
+            {MOSF_FRAMEWORK.criteria.map((criterion) => (
+              <div key={criterion.key} className="space-y-4">
+                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                  {criterion.name}
+                </h3>
+                {criterion.scoringRanges && (
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse border border-gray-300 dark:border-gray-700">
+                      <thead>
+                        <tr className="bg-gray-50 dark:bg-mosf-dark-alt">
+                          <th className="border border-gray-300 dark:border-gray-700 px-4 py-3 text-left font-semibold text-gray-900 dark:text-white">
+                            Range
+                          </th>
+                          <th className="border border-gray-300 dark:border-gray-700 px-4 py-3 text-left font-semibold text-gray-900 dark:text-white">
+                            Meaning
+                          </th>
+                          <th className="border border-gray-300 dark:border-gray-700 px-4 py-3 text-left font-semibold text-gray-900 dark:text-white">
+                            Indicators
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {criterion.scoringRanges.map((range, index) => (
+                          <tr
+                            key={index}
+                            className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                          >
+                            <td className="border border-gray-300 dark:border-gray-700 px-4 py-3">
+                              <span className="font-medium text-gray-900 dark:text-white">
+                                {range.range[0]}–{range.range[1]} ({range.label})
+                              </span>
+                            </td>
+                            <td className="border border-gray-300 dark:border-gray-700 px-4 py-3 text-gray-700 dark:text-gray-300">
+                              {range.meaning}
+                            </td>
+                            <td className="border border-gray-300 dark:border-gray-700 px-4 py-3 text-gray-700 dark:text-gray-300">
+                              <ul className="list-disc list-inside space-y-1">
+                                {range.indicators.map((indicator, idx) => (
+                                  <li key={idx}>{indicator}</li>
+                                ))}
+                              </ul>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className="space-y-4">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white border-b border-mosf-navy-200 dark:border-mosf-navy-800 pb-2">
             Classification Bands
@@ -123,6 +185,21 @@ export default function FrameworkRepositoryEvaluation() {
             ))}
           </ul>
         </section>
+
+        {MOSF_FRAMEWORK.interpretationNotes && (
+          <section className="space-y-4">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white border-b border-mosf-navy-200 dark:border-mosf-navy-800 pb-2">
+              Notes on Interpretation
+            </h2>
+            <ul className="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300 ml-4">
+              {MOSF_FRAMEWORK.interpretationNotes.map((note, index) => (
+                <li key={index} className="leading-relaxed">
+                  {note}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <section className="bg-mosf-navy-50 dark:bg-mosf-navy-900/20 border-l-4 border-mosf-navy-dark dark:border-mosf-navy-light p-6 rounded-r-lg">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
