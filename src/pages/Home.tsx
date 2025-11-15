@@ -106,18 +106,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Washington State Charities Disclosure */}
-        <section className="mt-6">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-              Muslim Open Source Foundation is registered with the Washington State Charities Program as required by law. Additional information is available at 1-800-332-4483 or www.sos.wa.gov/charities.
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-              Washington Charity Registration Number: 2012232.
-            </p>
-          </div>
-        </section>
-
         {/* Contact Section */}
         <section className="space-y-4">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white border-b border-mosf-navy-200 dark:border-mosf-navy-800 pb-2">
