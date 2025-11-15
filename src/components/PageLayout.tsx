@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import DarkModeToggle from "./DarkModeToggle";
 import NavLinks from "./NavLinks";
+import Footer from "./Footer";
 
 export default function PageLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -45,6 +46,7 @@ export default function PageLayout({ children }: { children: React.ReactNode }) 
         </div>
       </header>
       {children}
+      <Footer />
     </div>
   );
 }
